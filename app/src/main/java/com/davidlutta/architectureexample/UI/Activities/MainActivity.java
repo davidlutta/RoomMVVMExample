@@ -1,8 +1,10 @@
-package com.davidlutta.architectureexample;
+package com.davidlutta.architectureexample.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.davidlutta.architectureexample.R;
 
 public class MainActivity extends AppCompatActivity {
 
