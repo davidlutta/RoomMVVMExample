@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import com.davidlutta.architectureexample.R;
 
-public class AddNotesActivity extends AppCompatActivity {
+public class AddEditNotesActivity extends AppCompatActivity {
+    public static final String EXTRA_ID =
+            "com.davidlutta.architectureexample.UI.Activities.EXTRA_ID";
+
     public static final String EXTRA_TITLE =
             "com.davidlutta.architectureexample.UI.Activities.EXTRA_TITLE";
 
@@ -39,7 +42,20 @@ public class AddNotesActivity extends AppCompatActivity {
         priorityNumberPicker.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Note");
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(EXTRA_ID)){
+            setTitle("Edit Note");
+            titleEditText.setText(intent.getStringExtra(EXTRA_TITLE));
+            descriptionEditText.setText(intent.getStringExtra(EXTRA_DESC));
+            priorityNumberPicker.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+        } else {
+            setTitle("Add Note");
+        }
+
+
+
     }
 
     private void saveNote() {
@@ -56,6 +72,12 @@ public class AddNotesActivity extends AppCompatActivity {
         data.putExtra(EXTRA_TITLE,title);
         data.putExtra(EXTRA_DESC,description);
         data.putExtra(EXTRA_PRIORITY,priority);
+
+        int id = getIntent().getIntExtra(EXTRA_ID,-1);
+
+        if (id != -1){
+            data.putExtra(EXTRA_ID,id);
+        }
 
         setResult(RESULT_OK,data);
         finish();
