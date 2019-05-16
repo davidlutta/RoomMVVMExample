@@ -4,4 +4,7 @@
     <string name="descriptionTextView">Desription</string>
     <string name="priorityTextView1">Priority:</string>
     <string name="priorityTextView">10</string>
+    <string name="titleEditText">Title</string>
+    <string name="descriptionEditText">Description</string>
+    <string name="textView_priority">Priority:</string>
 </resources>
