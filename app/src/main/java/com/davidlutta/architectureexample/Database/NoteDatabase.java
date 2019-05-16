@@ -14,7 +14,7 @@ import com.davidlutta.architectureexample.Entities.Note;
 
 // you can add more classes in the entities array and
 // version shows the version schema of the app and if you make a change to the database schema then increase the version number and uninstall the app then reinstall it
-@Database(entities = {Note.class}, version = 1)
+@Database(entities = {Note.class}, version = 1, exportSchema = false)
 public abstract class NoteDatabase extends RoomDatabase {
 
     //We need to make it a singleton meaning that we don't want to have another instance of this database
