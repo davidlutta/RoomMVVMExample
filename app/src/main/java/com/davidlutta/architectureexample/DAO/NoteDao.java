@@ -27,7 +27,7 @@ public interface NoteDao {
     @Query("DELETE FROM note_table")
     void deleteAllNotes();
 
-    @Query("SELECT * FROM note_table ORDER BY priority DESC")
+    @Query("SELECT * FROM note_table ORDER BY priority ASC")
     LiveData<List<Note>> getAllNotes();
     //With LiveData if there are any changes with our table room will automatically change it for us
 }
